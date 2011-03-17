@@ -1,0 +1,31 @@
+<h1>Listing clickers</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>A count</th>
+    <th>B count</th>
+    <th>C count</th>
+    <th>D count</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clickers.each do |clicker| %>
+  <tr>
+    <td><%= clicker.question_id %></td>
+    <td><%= clicker.a_count %></td>
+    <td><%= clicker.b_count %></td>
+    <td><%= clicker.c_count %></td>
+    <td><%= clicker.d_count %></td>
+    <td><%= link_to 'Edit', edit_clicker_path(clicker) %></td>
+    <td><%= link_to 'Destroy', clicker, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Management', '/clickers/management' %>
+<%= link_to 'Home', '/clickers/' %>

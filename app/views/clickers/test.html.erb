@@ -1,0 +1,58 @@
+<%= form_for(@clicker) do |f| %>
+  <% if @clicker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clicker.errors.count, "error") %> prohibited this clicker from being saved:</h2>
+
+      <ul>
+      <% @clicker.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h1>Test</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Question</th>
+    <th>A</th>
+    <th>B</th>
+    <th>C</th>
+    <th>D</th>
+  </tr>
+
+  <tr>
+    <td><%= @question.number %></td>
+    <td><%= @question.question %></td>		
+    <td><%= @question.a %></td>
+    <td><%= @question.b %></td>		
+    <td><%= @question.c %></td>		
+    <td><%= @question.d %></td>
+  </tr>
+  <tr>
+		<td></td><td></td><td><%= f.radio_button :response, 'A' %></td>
+		<td><%= f.radio_button :response, 'B' %></td>
+		<td><%= f.radio_button :response, 'C' %></td>
+		<td><%= f.radio_button :response, 'D' %></td>
+  </tr>
+</table>
+
+<br />
+<% next_number = @question.number + 1
+	 if next_number > Question.count
+   		path = '/clickers/score'	 	
+	 else
+   		path = '/clickers/test/'+next_number.to_s
+	 end
+%>
+<br />
+
+<%= link_to 'Next', path %>
+
+<%= link_to 'Home', '/clickers/' %>
+
+
+<% end %>
+

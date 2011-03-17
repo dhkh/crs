@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= @clicker.question_id %>
+</p>
+
+<p>
+  <b>A count:</b>
+  <%= @clicker.a_count %>
+</p>
+
+<p>
+  <b>B count:</b>
+  <%= @clicker.b_count %>
+</p>
+
+<p>
+  <b>C count:</b>
+  <%= @clicker.c_count %>
+</p>
+
+<p>
+  <b>D count:</b>
+  <%= @clicker.d_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_clicker_path(@clicker) %> |
+<%= link_to 'Back', clickers_path %>
